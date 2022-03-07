@@ -4,24 +4,12 @@ namespace Battleships.Project.Application
 {
     public class Game
     {
-        public Player P1 { get; set; }
-        public Player P2 { get; set; }
+        public static Player P1 { get; set; }
+        public static Player P2 { get; set; }
 
-        public Game()
-        {
-            P1 = new("P1");
-            P2 = new("P2");
+        
 
-            P1.ShipsPlacing();
-            P2.ShipsPlacing();
-
-            P1.ShowGrid();
-            P2.ShowGrid();
-
-            PlayGame();
-        }
-
-        public void PlayRound()
+        public static void PlayRound()
         {
             var gridCellRef = P1.Shoot();
             var result = P2.ProcessShot(gridCellRef);
@@ -38,7 +26,7 @@ namespace Battleships.Project.Application
             P2.GridOutput();
         }
 
-        public void PlayGame()
+        public static void PlayGame()
         {
             while (!P1.Lost && !P2.Lost)
             {
@@ -53,6 +41,23 @@ namespace Battleships.Project.Application
             {
                 Console.WriteLine(P1.Name + " has won!");
             }
+
+            
+        }
+
+        public static void Match()
+        {
+
+            P1 = new("P1");
+            P2 = new("P2");
+
+            P1.ShipsPlacing();
+            P2.ShipsPlacing();
+
+            P1.ShowGrid();
+            P2.ShowGrid();
+
+            PlayGame();
         }
     }
 }
