@@ -35,11 +35,11 @@ namespace Battleships.Project.Application
 
             if (P1.Lost)
             {
-                Console.WriteLine(P2.Name + " has won!");
+                Console.WriteLine($"{P2.Name} has won!");
             }
             else if (P2.Lost)
             {
-                Console.WriteLine(P1.Name + " has won!");
+                Console.WriteLine($"{P1.Name} has won!");
             }
 
             

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Battleships.Project.Application
 {
-    /*Player class, which consists of a name, list of ships, boards (grids) used to play and a prop "Lost"*/
+    /// Player class, which consists of a name, list of ships, boards (grids) used to play and a prop "Lost"
 
     public class Player
     {
@@ -37,7 +37,7 @@ namespace Battleships.Project.Application
             };
         }
 
-        /*Method that shows the Player his Grid and Firing Grid*/
+        ///Method that shows the Player his Grid and Firing Grid  
 
         public void ShowGrid()
         {
@@ -66,20 +66,22 @@ namespace Battleships.Project.Application
         public void ShipsPlacing()
         {
             /*Random number generator for choosing a random square on the grid as a starting point of placing a ship*/
-            Random rand = new Random();
+            Random rand = new();
 
             /*foreach loop which looks for a random non-occupied square to place a ship*/
 
             foreach (var ship in Ships)
             {
                 bool leftShips = true;
+                const int gridBounds = 11;
+
 
                 while (leftShips)
                 {
                     /*Starting position of the ship/the first cell of the ship*/
 
-                    var startx = rand.Next(1, 11);
-                    var starty = rand.Next(1, 11);
+                    var startx = rand.Next(1, gridBounds);
+                    var starty = rand.Next(1, gridBounds);
 
                     /*The last cell of the ship*/
 
